@@ -1,0 +1,8 @@
+# dotwrp.f90
+
+This is a wrapper for four Level 1 BLAS functions
+CDOTC CDOTU ZDOTC and ZDOTU in Accelerate.framework
+of Mac OS X.
+
+# Reference
+http://developer.apple.com/hardwaredrivers/ve/errata.html#fortran_conventions
