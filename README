@@ -1,7 +1,7 @@
 # dotwrp.f90
 
 This is a wrapper for four Level 1 BLAS functions
-CDOTC CDOTU ZDOTC and ZDOTU in Accelerate.framework
+CDOTC CDOTU ZDOTC ZDOTU and SDOT in Accelerate.framework
 of Mac OS X.
 
 # Reference
