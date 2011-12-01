@@ -38,3 +38,13 @@ call cblas_cdotu_sub(%val(n), cx, %val(incx), cy, %val(incy), c)
 cdotu_ = c
 return
 end
+
+real function sdot_(n, sx, incx, sy, incy)
+real sx(*), sy(*), s
+double precision d
+integer n, incx, incy
+
+sdot_ = cblas_sdot(%val(n), sx, %val(incx), sy, %val(incy))
+
+return
+end
