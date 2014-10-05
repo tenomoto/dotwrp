@@ -1,4 +1,5 @@
 // compile with: clang -c dotwrp.c
+#include <complex.h>
 #include <vecLib/cblas.h>
 
 #ifdef DOTWRP_GLOBAL
@@ -7,37 +8,34 @@
 #define DYLIB_LOCAL __attribute__ ((visibility ("hidden"))) 
 #endif
 
-typedef struct cplx_ { float r, i; } fcplx;
-typedef struct dcplx_ { double r, i; } dcplx;
-
 DYLIB_LOCAL
-dcplx zdotc_( const int* n, const dcplx* x, const int* ix, const dcplx *y, const int* iy )
+double complex zdotc_( const int* n, const double complex* x, const int* ix, const double complex *y, const int* iy )
 {
-	dcplx z;
+	double complex z;
 	cblas_zdotc_sub( *n, x, *ix, y, *iy, &z );
 	return z;
 }
 
 DYLIB_LOCAL
-dcplx zdotu_( const int* n, const dcplx* x, const int* ix, const dcplx *y, const int* iy )
+double complex zdotu_( const int* n, const double complex* x, const int* ix, const double complex *y, const int* iy )
 {
-	dcplx z;
+	double complex z;
 	cblas_zdotu_sub( *n, x, *ix, y, *iy, &z );
 	return z;
 }
 
 DYLIB_LOCAL
-fcplx cdotc_( const int* n, const fcplx* x, const int* ix, const fcplx *y, const int* iy )
+float complex cdotc_( const int* n, const float complex* x, const int* ix, const float complex *y, const int* iy )
 {
-	fcplx z;
+	float complex z;
 	cblas_cdotc_sub( *n, x, *ix, y, *iy, &z );
 	return z;
 }
 
 DYLIB_LOCAL
-fcplx cdotu_( const int* n, const fcplx* x, const int* ix, const fcplx *y, const int* iy )
+float complex cdotu_( const int* n, const float complex* x, const int* ix, const float complex *y, const int* iy )
 {
-	fcplx z;
+	float complex z;
 	cblas_cdotu_sub( *n, x, *ix, y, *iy, &z );
 	return z;
 }
@@ -67,13 +65,13 @@ float sasum_( const int* n, const float* x, const int* ix )
 }
 
 DYLIB_LOCAL
-float scnrm2_( const int* n, const fcplx* x, const int* ix )
+float scnrm2_( const int* n, const float complex* x, const int* ix )
 {
 	return cblas_scnrm2( *n, x, *ix );
 }
 
 DYLIB_LOCAL
-float scasum_( const int* n, const fcplx* x, const int* ix )
+float scasum_( const int* n, const float complex* x, const int* ix )
 {
 	return cblas_scasum( *n, x, *ix );
 }
